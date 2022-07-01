@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>
+            Summer Project '22
+        </title>
+        <link rel="stylesheet" href="CSS Form.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="body">
+        <div class="form">
+            <form action="new.html" method="post">
+            <h1 class="h1">Log In</h1>
+            <div class="input-box">
+                <i class="fa fa-user"></i>
+                <input type="text" name="Username" id="Username" placeholder="Username" required="" autocomplete="off">
+            </div>
+            <div class="input-box">
+                <i class="fa fa-key"></i>
+                <input type="password" name="Password" id="Password" placeholder="Password" required="" autocomplete="off">
+                <span class="eye" onclick="togglePassword()">
+                    <i id="hide1" class="fa fa-eye"></i>
+                    <i id="hide2" class="fa fa-eye-slash"></i>
+                </span>
+            </div>
+            <div class="submit-container">
+            <input type="submit" class="button" value="Confirm">
+            </div>
+            </form>
+        </div>
+
+            <script>
+                function togglePassword(){
+                    var x = document.getElementById("Password");
+                    var y = document.getElementById("hide1");
+                    var z = document.getElementById("hide2");
+
+                    if(x.type === "password"){
+                        x.type = "text";
+                        y.style.display = "block";
+                        z.style.display = "none";
+
+                    }
+                    else{
+                        x.type = "password";
+                        y.style.display = "none";
+                        z.style.display = "block";
+                    }
+                }
+            </script>
+            <script>
+                var username = document.getElementById("Username") , password = document.getElementById("Password");
+            
+                function cekUsername(){
+                    if(username.value != "user") {
+                        username.setCustomValidity("Username belum terdaftar");
+                    } else {
+                        username.setCustomValidity('');
+                    }
+                }
+        
+                function cekPassword(){
+                    if(password.value != "user") {
+                        password.setCustomValidity("Password salah");
+                    } else {
+                        password.setCustomValidity('');
+                    }
+                }
+            
+                username.onchange = cekUsername;
+                password.onchange = cekPassword;
+        
+                </script>
+    </body>
+</html>
